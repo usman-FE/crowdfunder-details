@@ -485,6 +485,50 @@
   </section>
   <!-- HERO SECTION END -->
 
+  <!-- MAIN CONTAINER -->
+  <main class="bg-[#FBFBFA]">
+    <div class="container max-w-screen-xl px-4 mx-auto py-14 flex relative items-start font-['Roboto']" x-data="{
+          activeItem: 'Elevator Pitch',
+    }">
+      <nav
+        class="hidden md:block sticky max-w-[180px] w-full h-[calc(100vh_-_80px)] overflow-y-auto top-20 left-0 border border-[#e4e4e4]"
+        x-data="{
+          sideNavItems: [
+            {title: 'Elevator Pitch', url: 'elevator-pitch'},
+            {title: 'Company Overview', url: 'company-overview'},
+            {title: 'Traction', url: 'traction'},
+            {title: 'Pitch Deck', url: 'pitch-deck'},
+            {title: 'Investors', url: 'investors'},
+            {title: 'Press Mentions', url: 'press-mentions'},
+            {title: 'Team', url: 'team'},
+            {title: 'Advisors', url: 'advisors'},
+            {title: 'Key Customers & Partners', url: 'comapany-partners'},
+            {title: 'Testimonials', url: 'testimonials'},
+            {title: 'Previous Funding', url: 'previous-funding'},
+            {title: 'FAQs', url: 'faqs'},
+            {title: 'LPO Enters into a LOI with ALAMidas Capital Partners(ACP) Va', url: 'custom'},
+            {title: 'Risks and Disclosures', url: 'risks'},
+            {title: 'Documents', url: 'documents'},
+          ]
+        }">
+        <ul class="h-full w-full bg-white">
+          <template x-for="item in sideNavItems" :key="item.title">
+            <li>
+              <a :href="'#' + item.url" class="text-sm px-3 py-3.5 block border-l-4" @click="activeItem = item.title"
+                :class="activeItem === item.title ? 'font-semibold bg-white text-[#f5713f] border-[#f5713f]' : 'bg-[#FBFBFA] text-[#252525] border-transparent hover:text-[#fd8b61]'"
+                x-text="item.title"></a>
+            </li>
+          </template>
+        </ul>
+      </nav>
+      <div class="w-full h-full">
+        <div class="h-screen bg-slate-400 w-full"></div>
+        <div class="h-screen bg-blue-300 w-full"></div>
+        <div id="company-overview" class="h-screen bg-purple-300 w-full"></div>
+      </div>
+    </div>
+  </main>
+
   <!-- FOOTER SECTION START -->
   <footer class="bg-[#343434] text-[#777] text-sm py-10">
     <div class="container max-w-screen-xl mx-auto px-4 font-['Roboto']">
