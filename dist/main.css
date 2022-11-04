@@ -1079,6 +1079,10 @@ video {
   border-left-width: 4px;
 }
 
+.border-dashed {
+  border-style: dashed;
+}
+
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
@@ -1120,6 +1124,11 @@ video {
 
 .border-transparent {
   border-color: transparent;
+}
+
+.border-\[\#DCDEDD\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 222 221 / var(--tw-border-opacity));
 }
 
 .border-b-\[\#0b2c3d\] {
@@ -1293,6 +1302,11 @@ video {
   padding-bottom: 0.875rem;
 }
 
+.px-9 {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
 .pl-10 {
   padding-left: 2.5rem;
 }
@@ -1307,6 +1321,10 @@ video {
 
 .pl-2 {
   padding-left: 0.5rem;
+}
+
+.pt-40 {
+  padding-top: 10rem;
 }
 
 .text-center {
@@ -1346,6 +1364,11 @@ video {
   line-height: 1rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -1376,6 +1399,10 @@ video {
 
 .leading-none {
   line-height: 1;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 .text-white {
@@ -1453,6 +1480,11 @@ video {
 .text-\[\#252525\] {
   --tw-text-opacity: 1;
   color: rgb(37 37 37 / var(--tw-text-opacity));
+}
+
+.text-\[\#222\] {
+  --tw-text-opacity: 1;
+  color: rgb(34 34 34 / var(--tw-text-opacity));
 }
 
 .opacity-50 {
@@ -1783,9 +1815,34 @@ video {
     flex-direction: row;
   }
 
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .md\:px-9 {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -1796,6 +1853,10 @@ video {
 
   .lg\:mt-\[115px\] {
     margin-top: 115px;
+  }
+
+  .lg\:mt-40 {
+    margin-top: 10rem;
   }
 
   .lg\:flex {
@@ -1855,5 +1916,9 @@ video {
   .lg\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .lg\:pt-40 {
+    padding-top: 10rem;
   }
 }
