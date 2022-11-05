@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="41px" viewBox="0 0 34 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-previous-funding</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-previous-funding" transform="translate(1.000000, 1.000000)">
+            <circle id="Oval-4" stroke="#256AB8" stroke-width="1.5" cx="13" cy="13" r="13"></circle>
+            <text id="$" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="16" font-weight="bold" letter-spacing="0.740000069" fill="#256AB8">
+                <tspan x="9" y="19">$</tspan>
+            </text>
+            <path d="M22.8968302,34.8729389 L24.7237097,38 L30.9885992,26.6334098 L17.8908967,23.9077502 L18.6751478,27.6189133 C17.448109,28.395616 16.1128219,28.8502677 14.6692865,28.9828681 C12.5039834,29.1817688 10.0326805,29.236219 8.52649288,28.7839674 C7.52236778,28.4824664 5.59973671,27.7656138 2.75859968,26.6334098 C4.06602258,28.5678167 5.26350847,30.0268718 6.35105736,31.0105753 C7.98238069,32.4861305 10.6598788,34.4859376 11.8215634,34.8729389 C12.9832479,35.2599403 15.7230605,35.8386424 17.4207514,35.8732925 C18.5525453,35.8963926 20.3779049,35.5629414 22.8968302,34.8729389 Z" id="Path-5" stroke="#256AB8" stroke-width="1.5"></path>
+        </g>
+    </g>
+</svg>

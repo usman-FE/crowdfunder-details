@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
+  <!-- Alpine Plugins -->
+  <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+
   <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
   <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
 
@@ -486,8 +489,9 @@
   <!-- MAIN CONTAINER -->
   <main class="">
     <div class="container max-w-screen-xl px-4 mx-auto py-14 flex relative items-start font-['Roboto']" x-data="{
-          activeItem: 'Elevator Pitch',
+          activeItem: 'elevator-pitch',
     }">
+      <!-- SIDE NAVIGATION START -->
       <nav
         class="hidden md:block sticky max-w-[180px] w-full h-[calc(100vh_-_80px)] overflow-y-auto top-20 left-0 border border-[#e4e4e4]"
         x-data="{
@@ -512,16 +516,18 @@
         <ul class="h-full w-full bg-white">
           <template x-for="item in sideNavItems" :key="item.title">
             <li>
-              <a :href="'#' + item.url" class="text-sm px-3 py-3.5 block border-l-4" @click="activeItem = item.title"
-                :class="activeItem === item.title ? 'font-semibold bg-white text-[#f5713f] border-[#f5713f]' : 'bg-[#FBFBFA] text-[#252525] border-transparent hover:text-[#fd8b61]'"
+              <a :href="'#' + item.url" class="text-sm px-3 py-3.5 block border-l-4" @click="activeItem = item.url"
+                :class="activeItem === item.url ? 'font-semibold bg-white text-[#f5713f] border-[#f5713f]' : 'bg-[#FBFBFA] text-[#252525] border-transparent hover:text-[#fd8b61]'"
                 x-text="item.title"></a>
             </li>
           </template>
         </ul>
       </nav>
+      <!-- SIDE NAVIGATION END -->
+      <!-- MAIN CONTENT START -->
       <div class="w-full h-full">
         <!-- ELEVATOR PITCH SECTION START -->
-        <section id="elevator-pitch"
+        <section x-intersect.threshold.40="activeItem = $el.id" id="elevator-pitch"
           class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
           <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
             Elevator Pitch
@@ -535,7 +541,7 @@
         </section>
         <!-- ELEVATOR PITCH SECTION END -->
         <!-- COMPANY OVERVIEW SECTION START -->
-        <section id="company-overview"
+        <section x-intersect.threshold.40="activeItem = $el.id" id="company-overview"
           class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
           <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
             COMPANY OVERVIEW
@@ -584,13 +590,13 @@
         </section>
         <!-- COMPANY OVERVIEW SECTION END -->
         <!-- TRACTION SECTION START -->
-        <section id="traction"
+        <section x-intersect.threshold.40="activeItem = $el.id" id="traction"
           class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
           <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
             Traction
           </h2>
           <ul class="list-disc px-1 lg:px-5">
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   We launched our idea to create a company that could change the way people think about their daily
@@ -599,7 +605,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">November, 2018</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Life Pack Organics Inc,. established relationships with labs to engage in R&D for our proprietary
@@ -608,7 +614,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">DECEMBER, 2018</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Launched our all natural Luxury Spa Line along with our Sports Recovery Line making LPO first to
@@ -618,7 +624,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">OCTOBER, 2019</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Partnered with West Coast Labs to produce our fully soluble, 100% Natural & Organic, Vegan CBD blend
@@ -629,7 +635,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">MAY, 2019</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Launched full line of products and sold out to a distributor further providing "proof of concept".
@@ -637,7 +643,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">JANUARY, 2020</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Life Pack Organics signed Sinbad, the Comedian, as our Key Brand Ambassador representing us across all
@@ -647,7 +653,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">FEBRUARY, 2020</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Partnered & signed distribution agreement with 7Eleven Franchisee owner to provide LPO products in 9
@@ -657,7 +663,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">APRIL, 2020</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Launch Crowdfunder campaign to bring Life Pack Organics to every person on the planet. God Bless and
@@ -666,7 +672,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">APRIL, 2020</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   Life Pack Organics (“LPO”) Enters into a Letter of Intent to Joint Venture with ALAMidas Capital
@@ -675,7 +681,7 @@
                 <span class="block text-[#979797] uppercase mt-0.5 text-xs md:text-sm">AUGUST, 2020</span>
               </div>
             </li>
-            <li class="text-sm md:text-base">
+            <li class="pt-2.5 text-sm md:text-base">
               <div class="max-w-2xl">
                 <p class="text-[#333]">
                   For Immediate Release - LEGENDARY ROCK DRUMMER SIMON WRIGHT JOINS THE LIFE PACK ORGANICS ALL STAR TEAM
@@ -688,9 +694,819 @@
           </ul>
         </section>
         <!-- TRACTION SECTION END -->
-        <div class="h-screen bg-slate-400 w-full"></div>
-        <div class="h-screen bg-blue-300 w-full"></div>
+        <!-- PITCH DECK SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="pitch-deck"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            PITCH DECK
+          </h2>
+          <iframe
+            src="https://web.archive.org/web/20200920174759if_/https://www.slideshare.net/slideshow/embed_code/233170013?rel=0"
+            class="border border-[#CCC] mb-1.5 h-[230px] w-full md:h-[520px] md:w-[638px]" width="638" height="520"
+            frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="" webkitallowfullscreen=""
+            mozallowfullscreen=""> </iframe>
+        </section>
+        <!-- PITCH DECK SECTION END -->
+        <!-- ADVISORS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="advisors"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            ADVISORS
+          </h2>
+          <!-- SECTION CONTENT -->
+          <div class="pt-5 pb-4 flex gap-3 md:gap-7 items-start">
+            <!-- AVATAR -->
+            <div>
+              <a href="#" class="w-[65px] md:w-[120px] h-[65px] md:h-[120px] rounded-full block">
+                <img src="images/avatar.jpg" alt="" class="w-full h-full">
+              </a>
+            </div>
+            <!-- CONTENT -->
+            <div class="max-w-xl">
+              <!-- NAME HEADER -->
+              <div>
+                <a href="#" class="text-[#f5713f] text-base font-medium mb-1">Crowdfunder -</a>
+                <p class="text-sm">Crowdfunder.com</p>
+              </div>
+              <p class="text-sm">
+                The Big Idea:​S​oftware and the Internet continue to disrupt large traditional industries, from real
+                estate to
+                transportation. Next up: Venture Capital. Crowdfunder has created the next generation of VC firm ­ one
+                that is scalable,
+                diversified, and online.
+                The Industry:​The recent Goldman Sachs report, The Future of Finance, highlights Crowdfunder ​and
+                defines the total
+                market at over $1 Trillion. The capital market of equity crowdfunding is doubling each year and is set
+                to explode as an
+                entirely new class of everyday investors, and billions in new capital, come into the market under new
+                laws we helped
+                shape in Washington D.C. (JOBS Act T​itle III,​T​itle IV)​.
+                The Winning Model:​We don’t just crowdfund. Our “Fund + Platform” model enables both direct online
+                investment into
+                single ventures, as well as broad diversification into a portfolio (Index Fund) of hundreds of VC­led
+                startups ­ backed
+                by many of the world’s leading VC firms and private investors. The result is a powerful combination of a
+                Fund that
+                provides proprietary access to VC­led deal flow, while amassing a high­impact network of thousands of
+                wealthy and
+                everyday investors. These investors gain unique and unprecedented access to VC deals online, as small
+                individuals
+                investing as little as $500 per investment.
+                To build this model, Crowdfunder first opened its leading equity investment Platform, where over 12,000
+                registered
+                accredited institutional & individual investors access VC­led deal flow online. This investment Platform
+                earns
+                Crowdfunder equity in the VC­led startups for which it fundraises. In the last three quarters this model
+                has built
+                Crowdfunder a portfolio of equity in 54 investor­led startups, without investing a single dollar to do
+                so. This has
+                positioned Crowdfunder to launch the next strategic component of the model...
+              </p>
+              <a href="#" class="text-[#f5713f] text-sm">Read more</a>
+            </div>
+          </div>
+        </section>
+        <!-- ADVISORS SECTION END -->
+        <!-- PRESS MENTIONS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="press-mentions"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            PRESS MENTIONS
+          </h2>
+          <ul class="list-disc px-1">
+            <li class="pt-3 text-sm md:text-base">
+              <div class="max-w-3xl">
+                <a href="#">
+                  <p class="text-[#333]">
+                    Health and Wellness Company Launches Pre-IPO Funding Round with Brokers Crowdfunder.com
+                  </p>
+                </a>
+              </div>
+            </li>
+            <li class="pt-3 text-sm md:text-base">
+              <div class="max-w-2xl">
+                <a href="#">
+                  <h3 class="text-base font-medium tracking-wider uppercase text-[#222]">iHeartRadio</h3>
+                  <p class="text-[#333]">
+                    Listen Free to Leave it in the Ring on iHeartRadio Podcasts | iHeartRadio
+                  </p>
+                </a>
+              </div>
+            </li>
+            <li class="pt-3 text-sm md:text-base">
+              <div class="max-w-2xl">
+                <a href="#">
+                  <p class="text-[#333]">
+                    Comedy Legend Sinbad Joins Forces With CBD Wellness Company Life Pack Organics, Inc.
+                  </p>
+                </a>
+              </div>
+            </li>
+            <li class="pt-3 text-sm md:text-base">
+              <div class="max-w-2xl">
+                <a href="#">
+                  <h3 class="text-base font-medium tracking-wider uppercase text-[#222]">L.A. Cannabis News</h3>
+                  <p class="text-[#333]">
+                    Sinbad Partners With CBD Company Life Pack Organics - L.A. Cannabis News
+                  </p>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <!-- PRESS MENTIONS SECTION END -->
+        <!-- ADVISORS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="advisors"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            ADVISORS
+          </h2>
+          <!-- SECTION CONTENT -->
+          <div class="pt-5 pb-4 flex gap-3 md:gap-7 items-start">
+            <!-- AVATAR -->
+            <div>
+              <a href="#" class="w-[65px] md:w-[120px] h-[65px] md:h-[120px] rounded-full block">
+                <img src="images/avatar.jpg" alt="" class="w-full h-full">
+              </a>
+            </div>
+            <!-- CONTENT -->
+            <div class="max-w-xl">
+              <!-- NAME HEADER -->
+              <div>
+                <a href="#" class="text-[#f5713f] text-base font-medium mb-1">Crowdfunder -</a>
+                <p class="text-sm">Crowdfunder.com</p>
+              </div>
+              <p class="text-sm">
+                The Big Idea:​S​oftware and the Internet continue to disrupt large traditional industries, from real
+                estate to
+                transportation. Next up: Venture Capital. Crowdfunder has created the next generation of VC firm ­ one
+                that is scalable,
+                diversified, and online.
+                The Industry:​The recent Goldman Sachs report, The Future of Finance, highlights Crowdfunder ​and
+                defines the total
+                market at over $1 Trillion. The capital market of equity crowdfunding is doubling each year and is set
+                to explode as an
+                entirely new class of everyday investors, and billions in new capital, come into the market under new
+                laws we helped
+                shape in Washington D.C. (JOBS Act T​itle III,​T​itle IV)​.
+                The Winning Model:​We don’t just crowdfund. Our “Fund + Platform” model enables both direct online
+                investment into
+                single ventures, as well as broad diversification into a portfolio (Index Fund) of hundreds of VC­led
+                startups ­ backed
+                by many of the world’s leading VC firms and private investors. The result is a powerful combination of a
+                Fund that
+                provides proprietary access to VC­led deal flow, while amassing a high­impact network of thousands of
+                wealthy and
+                everyday investors. These investors gain unique and unprecedented access to VC deals online, as small
+                individuals
+                investing as little as $500 per investment.
+                To build this model, Crowdfunder first opened its leading equity investment Platform, where over 12,000
+                registered
+                accredited institutional & individual investors access VC­led deal flow online. This investment Platform
+                earns
+                Crowdfunder equity in the VC­led startups for which it fundraises. In the last three quarters this model
+                has built
+                Crowdfunder a portfolio of equity in 54 investor­led startups, without investing a single dollar to do
+                so. This has
+                positioned Crowdfunder to launch the next strategic component of the model...
+              </p>
+              <a href="#" class="text-[#f5713f] text-sm">Read more</a>
+            </div>
+          </div>
+        </section>
+        <!-- ADVISORS SECTION END -->
+        <!-- ADVISORS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="advisors"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            ADVISORS
+          </h2>
+          <!-- SECTION CONTENT -->
+          <div class="pt-5 pb-4 flex gap-3 md:gap-7 items-start">
+            <!-- AVATAR -->
+            <div>
+              <a href="#" class="w-[65px] md:w-[120px] h-[65px] md:h-[120px] rounded-full block">
+                <img src="images/avatar.jpg" alt="" class="w-full h-full">
+              </a>
+            </div>
+            <!-- CONTENT -->
+            <div class="max-w-xl">
+              <!-- NAME HEADER -->
+              <div>
+                <a href="#" class="text-[#f5713f] text-base font-medium mb-1">Crowdfunder -</a>
+                <p class="text-sm">Crowdfunder.com</p>
+              </div>
+              <p class="text-sm">
+                The Big Idea:​S​oftware and the Internet continue to disrupt large traditional industries, from real
+                estate to
+                transportation. Next up: Venture Capital. Crowdfunder has created the next generation of VC firm ­ one
+                that is scalable,
+                diversified, and online.
+                The Industry:​The recent Goldman Sachs report, The Future of Finance, highlights Crowdfunder ​and
+                defines the total
+                market at over $1 Trillion. The capital market of equity crowdfunding is doubling each year and is set
+                to explode as an
+                entirely new class of everyday investors, and billions in new capital, come into the market under new
+                laws we helped
+                shape in Washington D.C. (JOBS Act T​itle III,​T​itle IV)​.
+                The Winning Model:​We don’t just crowdfund. Our “Fund + Platform” model enables both direct online
+                investment into
+                single ventures, as well as broad diversification into a portfolio (Index Fund) of hundreds of VC­led
+                startups ­ backed
+                by many of the world’s leading VC firms and private investors. The result is a powerful combination of a
+                Fund that
+                provides proprietary access to VC­led deal flow, while amassing a high­impact network of thousands of
+                wealthy and
+                everyday investors. These investors gain unique and unprecedented access to VC deals online, as small
+                individuals
+                investing as little as $500 per investment.
+                To build this model, Crowdfunder first opened its leading equity investment Platform, where over 12,000
+                registered
+                accredited institutional & individual investors access VC­led deal flow online. This investment Platform
+                earns
+                Crowdfunder equity in the VC­led startups for which it fundraises. In the last three quarters this model
+                has built
+                Crowdfunder a portfolio of equity in 54 investor­led startups, without investing a single dollar to do
+                so. This has
+                positioned Crowdfunder to launch the next strategic component of the model...
+              </p>
+              <a href="#" class="text-[#f5713f] text-sm">Read more</a>
+            </div>
+          </div>
+        </section>
+        <!-- ADVISORS SECTION END -->
+        <!-- KEY CUSTOMERS & PARTNERS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="comapany-partners"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            KEY CUSTOMERS & PARTNERS
+          </h2>
+          <div class="flex flex-wrap gap-10">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+            <img src="images/AHA.jpg" alt="" class="max-w-[80px] md:max-w-[110px] max-h-[80px] md:max-h-[110px]">
+          </div>
+        </section>
+        <!-- KEY CUSTOMERS & PARTNERS SECTION END -->
+        <!-- TESTIMONIALS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="testimonials"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            testimonials
+          </h2>
+          <!-- CONTENT -->
+          <div>
+            <!-- TESTIMONIAL -->
+            <div>
+              <div class="p-4 self-start flex gap-7">
+                <!-- THUMBNAIL -->
+                <div class="w-10 h-10">
+                  <img alt="" class="object-cover w-full h-full rounded-full" src="images/icon-company-logo.png">
+                </div>
+                <!-- INVESTOR NAME -->
+                <div>
+                  <h5 class="text-base font-medium">Brenda B.</h5>
+                  <span class="text-sm font-medium">Realtor</span>
+                </div>
+              </div>
+              <p class="max-w-2xl text-sm md:text-base pt-1 italic font-light">
+                "I have suffered with neck, back and hand pain for years, due to arthritis and past injuries. Since
+                using Life Pack’s
+                Life Powder in my coffee each morning and the CBD capsules in the afternoon, my pain has remarkably
+                improved. "
+              </p>
+            </div>
+            <!-- TESTIMONIAL -->
+            <div>
+              <div class="p-4 self-start flex gap-7">
+                <!-- THUMBNAIL -->
+                <div class="w-10 h-10">
+                  <img alt="" class="object-cover w-full h-full rounded-full" src="images/icon-company-logo.png">
+                </div>
+                <!-- INVESTOR NAME -->
+                <div>
+                  <h5 class="text-base font-medium">Craig L.</h5>
+                  <span class="text-sm font-medium">Entrepreneur/Avid Golfer</span>
+                </div>
+              </div>
+              <p class="max-w-2xl text-sm md:text-base pt-1 italic font-light">
+                "When I really noticed the difference was when I was out of the powder for 2 weeks! My elbow and knee
+                pain came back
+                from golfing. When I received the powder, I was back on the course within days. "
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- TESTIMONIALS SECTION END -->
+        <!-- PREVIOUS FUNDING SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="previous-funding"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            PREVIOUS FUNDING
+          </h2>
+          <!-- CONTENT -->
+          <div>
+            <!-- FUND -->
+            <div>
+              <div class="p-4 self-start flex gap-4">
+                <!-- THUMBNAIL -->
+                <div class="w-10 h-10">
+                  <img alt="" class="object-contain w-full h-full" src="images/icon-previous-funding.svg">
+                </div>
+                <!-- DETAIL -->
+                <div>
+                  <h5 class="text-base text-[#333]">
+                    $725,000
+                    <span class="text-[#252525] pl-1.5 font-bold text-xs">Equity</span>
+                  </h5>
+                  <span class="text-base my-1.5 block">Raise Source: Friends</span>
+                  <span class="text-xs uppercase text-[#979797] my-1.5 block">November 2019</span>
+                </div>
+              </div>
+            </div>
+            <!-- FUND -->
+            <div>
+              <div class="p-4 self-start flex gap-4">
+                <!-- THUMBNAIL -->
+                <div class="w-10 h-10">
+                  <img alt="" class="object-contain w-full h-full" src="images/icon-previous-funding.svg">
+                </div>
+                <!-- DETAIL -->
+                <div>
+                  <h5 class="text-base text-[#333]">
+                    $750,000
+                    <span class="text-[#252525] pl-1.5 font-bold text-xs">Equity</span>
+                  </h5>
+                  <span class="text-base my-1.5 block">Raise Source: Self</span>
+                  <span class="text-xs uppercase text-[#979797] my-1.5 block">January 2019</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- PREVIOUS FUNDING SECTION END -->
+        <!-- FAQ SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="faqs"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          <!-- CONTENT -->
+          <div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase">IS CBD LEGAL?</h3>
+              <p class="max-w-2xl text-sm mb-5">
+                In states where MMJ is legal, any CBD product (whether it comes from hemp or marijuana) is of course
+                perfectly legal.
+                Outside of these legalized states (including shipping from legal to non-legal states), things tend to be
+                a little less
+                clear. According to ProjectCBD.org, “Federal law prohibits U.S. farmers from cultivating hemp as a
+                commercial crop, but
+                the sale of imported, low-THC, industrial hemp products is permitted in the United States.” Technically,
+                this means that
+                as long as the CBD product (oil, vape, topical, etc) is produced from the seeds and stalk of the
+                industrial hemp plant
+                (with less than 0.3% THC), it is permissible to buy, sell, and ship across state lines. (However, in
+                articles like
+                2014’s Farm Bill, the exact rule seems to be a little less clear). All in all, the fact remains that
+                millions of people
+                buy and use CBD products every day of their lives, and this option is only getting more popular and
+                widespread with each
+                passing day.
+              </p>
+            </div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase max-w-2xl">
+                DOES CBD COME FROM MARIJUANA OR HEMP? AND WHAT’S THE DIFFERENCE BETWEEN THE TWO?
+              </h3>
+              <p class="max-w-2xl text-sm mb-5">
+                Marijuana and hemp are two different varieties of cannabis that come from the same species of plant
+                (Cannabis sativa L).
+                In general, CBD is found abundantly in both. However, it’s important to note that CBD is typically found
+                in the seeds
+                and stem of marijuana - not in the flowering buds (which is the part that you smoke). The hemp plant is
+                an entirely
+                different strain of cannabis that contains high quantities of CBD throughout (stem, buds, etc), and
+                practically zero
+                traces of THC. If a hemp plant contains more than 0.3% THC, it is then technically a “marijuana” plant.
+                Most all
+                CBD-based products come from the industrial hemp plant.
+              </p>
+            </div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase max-w-2xl">
+                WHAT’S THE DIFFERENCE BETWEEN CBD AND THC?
+              </h3>
+              <p class="max-w-2xl text-sm mb-5">
+                CBD functions by binding to cannabinoid receptors in the body’s endocannabinoid system. These receptors
+                have been found
+                in virtually every cell and tissue type in the human body (hence the seemingly endless array of CBD
+                uses).
+              </p>
+            </div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase max-w-2xl">
+                WILL CBD GET ME HIGH?
+              </h3>
+              <p class="max-w-2xl text-sm mb-5">
+                No, CBD will not get you high. It's non-intoxicating. Like we just said THC is the molecule that binds
+                to receptors in
+                our brain and is the one responsible for the psychoactive effects of marijuana. In fact, CBD is
+                antagonistic to the
+                marijuana high; some research expresses its potential to prevent THC molecules from binding to the
+                brain’s receptors
+                (hence the reason it’s often used to subdue the ‘paranoia’ effects of super-potent THC strains).
+              </p>
+            </div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase max-w-2xl">
+                ARE THERE SIDE EFFECTS OF USING CBD? IS IT SAFE?
+              </h3>
+              <p class="max-w-2xl text-sm mb-5">
+                The only significant danger/side effect of the drug is in vaping CBD oils that were produced using a
+                thinning agent,
+                such as propylene glycol. When burned/vaped, propylene glycol produces formaldehyde, which is a known
+                carcinogen. CBD
+                oils produced by CO2 extraction are much safer and purer than oils that were produced with liquid
+                alcohol/thinning
+                agents. Other than that, most research has concluded that CBD is perfectly safe with no known side
+                effects, though some
+                users have reported drowsiness, lightheadedness, low blood pressure, and dry mouth.
+              </p>
+            </div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase max-w-2xl">
+                WHAT ABOUT CBD TOPICALS… DO THEY WORK?
+              </h3>
+              <p class="max-w-2xl text-sm mb-5">
+                CBD topicals have proven effective for several circumstances. Many individuals swear by them.
+              </p>
+            </div>
+            <!-- QUESTION -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-lg font-medium mb-1 uppercase max-w-2xl">
+                HOW DO I KNOW IT’S SAFE TO PURCHASE CBD ONLINE?
+              </h3>
+              <p class="max-w-2xl text-sm mb-5">
+                To ensure the legality of buying CBD products online, you need to make sure the company you’re buying
+                from is reputable
+                and that the product was made from industrial hemp with less than 0.3% THC content. While transporting
+                marijuana across
+                state lines (from legal to non-legal states) is against the law, transporting hemp and hemp-based
+                products is safe.
+                Remember, millions of people all over the US (and the globe) are using CBD products every day.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- FAQ SECTION END -->
+        <!-- ADVISORS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="advisors"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            ADVISORS
+          </h2>
+          <!-- SECTION CONTENT -->
+          <div class="pt-5 pb-4 flex gap-3 md:gap-7 items-start">
+            <!-- AVATAR -->
+            <div>
+              <a href="#" class="w-[65px] md:w-[120px] h-[65px] md:h-[120px] rounded-full block">
+                <img src="images/avatar.jpg" alt="" class="w-full h-full">
+              </a>
+            </div>
+            <!-- CONTENT -->
+            <div class="max-w-xl">
+              <!-- NAME HEADER -->
+              <div>
+                <a href="#" class="text-[#f5713f] text-base font-medium mb-1">Crowdfunder -</a>
+                <p class="text-sm">Crowdfunder.com</p>
+              </div>
+              <p class="text-sm">
+                The Big Idea:​S​oftware and the Internet continue to disrupt large traditional industries, from real
+                estate to
+                transportation. Next up: Venture Capital. Crowdfunder has created the next generation of VC firm ­ one
+                that is scalable,
+                diversified, and online.
+                The Industry:​The recent Goldman Sachs report, The Future of Finance, highlights Crowdfunder ​and
+                defines the total
+                market at over $1 Trillion. The capital market of equity crowdfunding is doubling each year and is set
+                to explode as an
+                entirely new class of everyday investors, and billions in new capital, come into the market under new
+                laws we helped
+                shape in Washington D.C. (JOBS Act T​itle III,​T​itle IV)​.
+                The Winning Model:​We don’t just crowdfund. Our “Fund + Platform” model enables both direct online
+                investment into
+                single ventures, as well as broad diversification into a portfolio (Index Fund) of hundreds of VC­led
+                startups ­ backed
+                by many of the world’s leading VC firms and private investors. The result is a powerful combination of a
+                Fund that
+                provides proprietary access to VC­led deal flow, while amassing a high­impact network of thousands of
+                wealthy and
+                everyday investors. These investors gain unique and unprecedented access to VC deals online, as small
+                individuals
+                investing as little as $500 per investment.
+                To build this model, Crowdfunder first opened its leading equity investment Platform, where over 12,000
+                registered
+                accredited institutional & individual investors access VC­led deal flow online. This investment Platform
+                earns
+                Crowdfunder equity in the VC­led startups for which it fundraises. In the last three quarters this model
+                has built
+                Crowdfunder a portfolio of equity in 54 investor­led startups, without investing a single dollar to do
+                so. This has
+                positioned Crowdfunder to launch the next strategic component of the model...
+              </p>
+              <a href="#" class="text-[#f5713f] text-sm">Read more</a>
+            </div>
+          </div>
+        </section>
+        <!-- ADVISORS SECTION END -->
+        <!-- RISKS & DISCLOSURES SECTION START -->
+        <section x-intersect.threshold.10="activeItem = $el.id" id="risks"
+          class="py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            RISKS & DISCLOSURES
+          </h2>
+          <!-- CONTENT -->
+          <div>
+            <!-- RISK -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-xl font-medium uppercase mb-4">RISK FACTORS</h3>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                Investing in common stock involves a high degree of risk. Potential investors should carefully consider
+                all risk factors
+                and information contained in this prospectus before purchasing Company stock. There are associated risks
+                and
+                uncertainties beyond those described herein that affect our business. There may be additional risks and
+                uncertainties of
+                which we are unaware or currently deem immaterial that may impact our business. Should we become subject
+                to any of these
+                circumstances, our business, financial condition or results of operations could be materially and
+                adversely affected in
+                which the value of our stock could decline. Investors may lose a portion or all of the investment.
+              </p>
+            </div>
+            <!-- RISK -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-xl font-medium uppercase mb-4">BUSINESS RELATED RISKS</h3>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                Company success depends on the viability of our business model. Our business model is based on
+                opportunities in both the
+                Cannabidiol (CBD) and Health and Wellness/Fitness markets with a variety of speculation and assumptions
+                relating to
+                industry trends, state and local legislation around compliance of the CBD industry.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                Life Pack Organics Inc. business model is unproven. Our profit and income potential are contingent upon
+                variables which
+                may extend beyond our control. As a direct result, our business model/financial success could differ
+                materially from
+                those projections included.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                To achieve success, we must:
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                Our business will suffer if we are unable to accomplish these and other important business objectives.
+                We are uncertain
+                as to when, or whether, we will fully implement our contemplated business plan and strategy or become
+                profitable.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                Our financial position, liquidity and results of operations depend on our management team’s ability to
+                execute our
+                business strategy. Knowledge of an industry’s prospects and risks are an important part of the valuation
+                process. No
+                business can be valued in a vacuum as the performance of a business is dependent on industry trends and
+                other external
+                factors. This is especially relevant in the CBD and beverage industry, as a myriad of industry-specific
+                risks and
+                uncertainties need to be incorporated into the valuation process.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed uppercase font-medium">
+                AGRICULTURE IMPROVEMENT ACT OF 2018 (FARM BILL)
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed uppercase font-medium">
+                *SEC. 10113. HEMP PRODUCTION.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                The Agricultural Marketing Act of 1946 (<a href="#" class="text-[#f5713f] font-medium">7 U.S.C. 1621</a>
+                et seq.) is
+                amended by adding at
+                the end the following:
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed uppercase font-medium">
+                “Subtitle G—Hemp Production
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed uppercase font-medium">
+                “SEC. 297A. DEFINITIONS.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                “In this subtitle:
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                “(1) HEMP. —The term ‘hemp’ means the plant Cannabis sativa L. and any part of that plant, including the
+                seeds thereof
+                and all derivatives, extracts, cannabinoids, isomers, acids, salts, and salts of isomers, whether
+                growing or not, with a
+                delta-9 tetrahydrocannabinol concentration of not more than 0.3 percent on a dry weight basis.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed uppercase font-medium">
+                SEC. 10114. INTERSTATE COMMERCE.
+              </p>
+              <ul class="list-disc px-1 lg:px-5 mb-5">
+                <li class="text-sm md:text-base">
+                  <p class="text-[#333] max-w-2xl">
+                    Rule Of Construction. —Nothing in this title or an amendment made by this title prohibits the
+                    interstate commerce of
+                    hemp (as defined in section 297A of the Agricultural Marketing Act of 1946 (as added by section
+                    10113)) or hemp
+                    products.
+                  </p>
+                </li>
+                <li class="text-sm md:text-base">
+                  <p class="text-[#333] max-w-2xl">
+                    Transportation Of Hemp And Hemp Products. —No State or Indian Tribe shall prohibit the
+                    transportation or shipment of
+                    hemp or hemp products produced in accordance with subtitle G of the Agricultural Marketing Act of
+                    1946 (as added by
+                    section 10113) through the State or the territory of the Indian Tribe, as applicable.
+                  </p>
+                </li>
+              </ul>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                **With the issuance of this final order, the Acting Administrator of the Drug Enforcement Administration
+                places certain
+                drug products that have been approved by the Food and Drug Administration (FDA) and which contain
+                cannabidiol (CBD) in
+                schedule V of the Controlled Substances Act (CSA). Specifically, this order places FDA-approved drugs
+                that contain CBD
+                derived from cannabis and no more than 0.1 percent tetrahydrocannabinols in schedule V. This action is
+                required to
+                satisfy the responsibility of the Acting Administrator under the CSA to place a drug in the schedule he
+                deems most
+                appropriate to carry out United States obligations under the Single Convention on Narcotic Drugs, 1961.
+                Also consistent
+                therewith, DEA is adding such drugs to the list of substances that may only be imported or exported
+                pursuant to a
+                permit.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                DATES: Effective September 28, 2018.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                *<a href="#" class="text-[#f5713f]">https://www.congress.gov/bill/115th-congress/house...</a>
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                **<a href="#" class="text-[#f5713f]">https://www.deadiversion.usdoj.gov/fed_regs/rules/...</a>
+              </p>
+            </div>
+            <!-- RISK -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-xl font-medium uppercase mb-4">BANKING RISKS</h3>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                Banks and credit card issuers are very cautious of working this industry due to concerns over
+                enforcement at the federal
+                level and fears that they will fall victim to charges of money laundering or other alleged felonies. The
+                compliance
+                requirements for these institutions will eventually lead to banks closing all accounts associated with
+                the marijuana
+                industry. Consequently, most dispensaries operate in an “all cash” environment, which makes each
+                operation more
+                susceptible to crimes by employees or outsiders. Further, the banking industry’s reluctance to accept
+                this industry
+                makes it harder for potential marijuana businesses to purchase real estate, due to a shortage of
+                lenders. Similarly, it
+                is often difficult to persuade a potential landlord to lease space, as the landlord may worry about
+                seizure of his or
+                her property and the closure of their bank accounts.
+              </p>
+            </div>
+            <!-- RISK -->
+            <div class="my-5">
+              <h3 class="text-[#333] text-xl font-medium uppercase mb-4">OTHER RISK FACTORS</h3>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                The Cannabidiol industry is laden with both opportunities and risk. For small business owners that can
+                tolerate risk,
+                significant tax bills, heavy regulatory scrutiny, and a lingering moral stigma, an efficient operator
+                with good business
+                practice can generate significant profits. While some local financial institutions are quietly accepting
+                industrial hemp
+                business clients, most major banks and credit unions are still reluctant to service the industry out of
+                fear of being
+                penalized for money laundering.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed font-medium italic">
+                Subject to substantial federal and state regulations
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                The Company’s research and development activities and the manufacturing and marketing of the Company’s
+                products may be
+                subject to the laws, regulations, and guidelines and, in some cases, regulatory approvals of
+                governmental authorities in
+                the United States.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                The Company cannot be sure that the governments will not question its advertising or other activities in
+                the future. In
+                addition, the Company cannot predict whether new legislation or regulations governing the Company’s
+                activities will be
+                enacted by legislative bodies or promulgated by agencies further regulating or restricting the Company’s
+                activities, or
+                what the effect of any such legislation or regulations may be upon the Company’s business.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                While the Company has retained counsel to advise and assist it on issues of compliance, it is possible
+                that regulatory
+                changes could occur which could detrimentally affect the Company’s ability to market and sell its
+                products and/or
+                services. In addition, regulatory changes could affect the Company’s advertising in a manner that could
+                negatively
+                affect earnings.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                We intend to use the proceeds from this offering for general corporate purposes, including working
+                capital and
+                acquisition of raw materials to further enhance product lines. In any case, we will have broad
+                discretion over how we
+                use these proceeds. You will not have the opportunity to evaluate the economic, financial or other
+                information on which
+                we base our decisions regarding how to use the proceeds from this offering, and we may spend these
+                proceeds in ways with
+                which you disagree. A limited number of stockholders collectively own a significant portion of our
+                common shares and may
+                act, or prevent corporate actions, to the detriment of other stockholders.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                You should carefully consider the risk factors described below together with the information contained
+                in the supporting
+                documents before making an investment decision to invest in our Securities. While we believe these risks
+                and
+                uncertainties are the most important for you to consider an investment in the shares is a speculative
+                investment and
+                involves significant risks and should be made only by persons or entities that can afford the loss of
+                their entire
+                investment.
+              </p>
+              <p class="max-w-2xl text-sm mb-5 leading-relaxed">
+                The following considerations do not constitute a complete discussion of the risks relating to “COMPANY”.
+                An accurate
+                appraisal of the risks of an investment in the shares can only be gained through an investor’s own due
+                diligence. We may
+                need Subsequent Financing; however, there is no Assurance that we will obtain it. If in fact we do not
+                realize the
+                Financing, as there is no such assurance that this can be accomplished, we will continue to operate the
+                “COMPANY” using
+                our own funds and talent, like we have done so far. Although we anticipate that upon realization and
+                completion of the
+                full amount of this Offering, we will be able to internally generate sufficient revenue to continue the
+                expansion plans
+                of the “COMPANY”, there cannot be any assurance that this can be accomplished. Consequently, we may
+                determine a need to
+                obtain additional financing which could cause dilution to subscribing shareholders to this offering but
+                on the other
+                hand, would most probably increase profits.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- RISKS & DISCLOSURES SECTION END -->
+        <!-- DOCUMENTS SECTION START -->
+        <section x-intersect.threshold.40="activeItem = $el.id" id="documents"
+          class=" py-5 px-2.5 md:py-10 md:px-9 bg-white border-b border-dashed border-[#DCDEDD] text-sm">
+          <h2 class="text-xl md:text-lg font-medium tracking-wider uppercase text-[#222] mb-6">
+            DOCUMENTS
+          </h2>
+          <div class="px-12 pt-16 h-72 bg-[url('../images/bg-documents-locked.jpg')] bg-no-repeat bg-[#828282]">
+            <h3
+              class="text-white text-center text-lg uppercase font-light mb-10 mt-1.5 flex items-center justify-center">
+              <img src="images/icon-safe.png" class="mr-3 block" alt="">
+              Confidential
+            </h3>
+            <button type="button"
+              class="bg-[#fa8601] text-white uppercase py-3 block w-full text-lg tracking-wide mb-6 rounded-sm">
+              Request Access
+            </button>
+          </div>
+        </section>
+        <!-- DOCUMENTS SECTION END -->
       </div>
+      <!-- MAIN CONTENT END -->
     </div>
   </main>
 
